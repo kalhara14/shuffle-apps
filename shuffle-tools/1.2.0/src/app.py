@@ -1431,6 +1431,8 @@ class Tools(AppBase):
                 data = data.replace(" encoding=\"utf-8\"", " ")
                 ans = xmltodict.parse(data)
                 json_data = json.dumps(ans)
+                json_data = json_data.replace("\"@", "\"")
+                json_data = json_data.replace("#", "")
                 return json_data
             else:
                 ans = readfromstring(data)
